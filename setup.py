@@ -7,7 +7,7 @@ from setuptools import setup
 version_contents = {}
 
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, "shippo", "version.py"), encoding="utf-8") as f:
+with open(os.path.join(here, "shippo", "version.py")) as f:
     exec(f.read(), version_contents)
 
 setup(
