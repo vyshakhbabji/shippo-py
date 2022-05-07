@@ -12,11 +12,11 @@ on:
 jobs:
   build:
 
-    runs-on: [ubuntu-latest, macos-latest , windows-latest]
+    runs-on: [ubuntu-latest]
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.0","3.1","3.2","3.3","3.4","3.5","3.6","3.7","3.8", "3.9", "3.10"]
+        python-version: ["3.4","3.5","3.6","3.7","3.8"]
 
     steps:
     - uses: actions/checkout@v3
@@ -38,3 +38,14 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+ 
+  monitor:
+    name: SSL/TLS Monitor
+    runs-on: ubuntu-latest
+    steps:
+      - name: Monitor
+        uses: bluenovaio/action-tls-monitor@main
+        with: 
+          domain: bluenova.io
+          expiration_days: 30
+          approved_protocols: TLSv1.2,TLSv1.3
