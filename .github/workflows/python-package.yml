@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.4","3.5","3.6","3.7","3.8"]
+        python-version: ["3.4.4","3.5.9","3.6.15","3.7.13","3.8.12"]
 
     steps:
     - uses: actions/checkout@v3
@@ -48,4 +48,4 @@ jobs:
         with: 
           domain: bluenova.io
           expiration_days: 30
-          approved_protocols: TLSv1.2,TLSv1.3
+          approved_protocols: TLSv1.1,TLSv1.2,TLSv1.3
